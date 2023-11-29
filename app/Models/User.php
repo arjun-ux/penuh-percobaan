@@ -42,6 +42,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    // set api token
+    public function setApiToken()
+    {
+        $this->api_token = bin2hex(random_bytes(40));
+        $this->save();
+    }
+
+    // hasOne ke table santri
     public function santri()
     {
         return $this->hasOne(Santri::class);

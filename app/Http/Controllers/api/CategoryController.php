@@ -15,10 +15,10 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::all();
-        return response()->json($categories, 200);
+        return response()->json($categories);
     }
 
     /**
